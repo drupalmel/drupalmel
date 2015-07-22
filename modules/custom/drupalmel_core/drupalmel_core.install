@@ -65,3 +65,23 @@ function _drupalmel_core_flush_revert($modules = array()) {
   $components = array_keys($info['features']);
   features_revert(array(basename(__FILE__, '.install') => $components));
 }
+
+/**
+ * Enable persistent update module, run this modules persistent update hook and
+ * add Realityloop blog feed.
+ */
+function drupalmel_core_update_7000() {
+  // Enable persistent update module.
+  module_enable(array('persistent_update'));
+
+  // Run this modules persistent update hook.
+  drupalmel_core_persistent_update();
+
+  // Add Realityloop blog feed.
+  $node = new stdClass();
+  $node->type = 'blog_feed';
+  node_object_prepare($node);
+  $node->title = 'Realityloop';
+  $node->feeds['FeedsHTTPFetcher']['source'] = 'http://realityloop.com/tags/drupal-planet/feed';
+  node_save($node);
+}

@@ -104,6 +104,7 @@ function drupalmel_core_default_page_manager_pages() {
         'contains' => 'region',
         'children' => array(
           0 => 2,
+          1 => 3,
         ),
         'parent' => 'canvas',
         'wrapper' => 'div',
@@ -124,11 +125,48 @@ function drupalmel_core_default_page_manager_pages() {
         'class' => '',
         'class_default_add' => 0,
         'contains' => 'region',
+        'bootstrap_class' => array(
+          'xs' => 'col-xs-12',
+          'sm' => 'col-sm-12',
+          'md' => 'col-md-6',
+          'lg' => 'col-lg-6',
+        ),
       ),
       'content' => array(
         'type' => 'region',
-        'title' => 'Content',
+        'title' => 'Events',
         'parent' => '2',
+        'wrapper' => 'div',
+        'element_id_default' => 0,
+        'element_id' => '',
+        'class' => '',
+        'class_default_add' => 0,
+        'container_class_add' => 0,
+        'container_full_class_add' => 0,
+      ),
+      3 => array(
+        'type' => 'column',
+        'parent' => '1',
+        'children' => array(
+          0 => 'blog',
+        ),
+        'wrapper' => 'div',
+        'element_id_default' => 0,
+        'element_id' => '',
+        'class' => '',
+        'class_default_add' => 0,
+        'contains' => 'region',
+        'bootstrap_class' => array(
+          'xs' => 'col-xs-12',
+          'sm' => 'col-sm-12',
+          'md' => 'col-md-6',
+          'lg' => 'col-lg-6',
+        ),
+      ),
+      'blog' => array(
+        'type' => 'region',
+        'title' => 'Blog',
+        'parent' => '3',
         'wrapper' => 'div',
         'element_id_default' => 0,
         'element_id' => '',
@@ -143,9 +181,12 @@ function drupalmel_core_default_page_manager_pages() {
     'style_settings' => array(
       'default' => NULL,
       'center' => NULL,
-      'content' => NULL,
+      'blog' => NULL,
     ),
     'style' => 'naked',
+    'content' => array(
+      'style' => 'default',
+    ),
   );
   $display->cache = array(
     'method' => 'simple',
@@ -158,6 +199,45 @@ function drupalmel_core_default_page_manager_pages() {
   $display->uuid = '952f533f-f3bc-445f-9b22-75219e99cd1f';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-0a2ed1bb-18ed-4512-a3ff-bd3f05958629';
+    $pane->panel = 'blog';
+    $pane->type = 'block';
+    $pane->subtype = 'views-blog-block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'modifier_class' => '',
+        'collapsible' => 0,
+        'collapsed' => 0,
+        'hide_classes' => array(
+          'hidden-xs' => 0,
+          'hidden-sm' => 0,
+          'hidden-md' => 0,
+          'hidden-lg' => 0,
+        ),
+        'additional_classes' => array(
+          'pull-left' => 0,
+          'pull-right' => 0,
+          'clearfix' => 0,
+        ),
+      ),
+      'style' => 'bootstrap_styles:panel',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '0a2ed1bb-18ed-4512-a3ff-bd3f05958629';
+    $display->content['new-0a2ed1bb-18ed-4512-a3ff-bd3f05958629'] = $pane;
+    $display->panels['blog'][0] = 'new-0a2ed1bb-18ed-4512-a3ff-bd3f05958629';
     $pane = new stdClass();
     $pane->pid = 'new-e936ce19-0cc5-42ce-9f7a-c13b73e7c0c9';
     $pane->panel = 'center';

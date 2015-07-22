@@ -60,11 +60,17 @@ projects[features][version] = 2.6
 ; Cleaner info format - https://drupal.org/comment/8270327#comment-8270327
 projects[features][patch][] = https://drupal.org/files/issues/cleaner_info-2155793-1.patch
 
+projects[feeds][version] = 2.0-beta1
+
+projects[feeds_tamper][version] = 1.1
+
 projects[flag][version] = 3.6
 
 projects[google_analytics][download][revision] = b012464
 ; Allow empty Web Property ID variable - https://www.drupal.org/node/1964052#comment-10099170
 projects[google_analytics][patch][] = https://www.drupal.org/files/issues/variable_empty_id-1964052-18.patch
+
+projects[job_scheduler][version] = 2.0-alpha3
 
 projects[jquery_update][version] = 2.6
 
