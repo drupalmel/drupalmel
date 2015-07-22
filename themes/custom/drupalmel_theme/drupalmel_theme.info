@@ -20,6 +20,8 @@ regions[footer]  = Footer
 
 ; Settings
 
+settings[bootstrap_cdn] = 3.3.5
+settings[bootstrap_image_responsive] = 0
 settings[bootstrap_navbar_inverse] = 1
 settings[bootstrap_navbar_position] = fixed-top
 

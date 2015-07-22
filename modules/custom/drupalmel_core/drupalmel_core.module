@@ -20,3 +20,12 @@ foreach (module_list() as $module) {
     require_once $file;
   }
 }
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function drupalmel_core_ctools_plugin_directory($owner, $plugin_type) {
+  if ('feeds_tamper' == $owner) {
+    return "plugins/{$owner}";
+  }
+}

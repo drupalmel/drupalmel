@@ -41,8 +41,16 @@ function drupalmel_core_context_default_contexts() {
     ),
     'variable' => array(
       '#set' => array(
+        'cache' => 0,
+        'cache_lifetime' => 0,
+        'page_cache_maximum_age' => 0,
         'prepro' => 0,
+        'preprocess_css' => 0,
+        'preprocess_js' => 0,
       ),
+      'cache' => 0,
+      'cache_lifetime' => '0',
+      'page_cache_maximum_age' => '0',
       'prepro' => array(
         'filetypes' => array(
           'sass' => array(
@@ -66,6 +74,8 @@ function drupalmel_core_context_default_contexts() {
         ),
         'show_warnings' => 1,
       ),
+      'preprocess_css' => 0,
+      'preprocess_js' => 0,
     ),
   );
   $context->condition_mode = 0;

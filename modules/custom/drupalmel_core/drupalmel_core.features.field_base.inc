@@ -31,6 +31,43 @@ function drupalmel_core_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
+  // Exported field_base: 'field_blog_post_image'
+  $field_bases['field_blog_post_image'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_blog_post_image',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'image',
+    'settings' => array(
+      'default_image' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'image',
+  );
+
+  // Exported field_base: 'field_blog_post_url'
+  $field_bases['field_blog_post_url'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_blog_post_url',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'url',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'url',
+  );
+
   // Exported field_base: 'field_event_address'
   $field_bases['field_event_address'] = array(
     'active' => 1,
