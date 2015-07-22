@@ -51,6 +51,20 @@ function drupalmel_core_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'configurable_timezones';
+  $strongarm->value = 0;
+  $export['configurable_timezones'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_default_timezone';
+  $strongarm->value = 'Australia/Melbourne';
+  $export['date_default_timezone'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__event';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -168,6 +182,13 @@ function drupalmel_core_strongarm() {
   $strongarm->name = 'preprocess_js';
   $strongarm->value = 1;
   $export['preprocess_js'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_default_country';
+  $strongarm->value = 'AU';
+  $export['site_default_country'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

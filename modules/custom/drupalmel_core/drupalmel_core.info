@@ -94,6 +94,8 @@ features[variable][] = admin_theme
 features[variable][] = blockify_blocks
 features[variable][] = cache
 features[variable][] = cache_lifetime
+features[variable][] = configurable_timezones
+features[variable][] = date_default_timezone
 features[variable][] = field_bundle_settings_node__event
 features[variable][] = menu_options_event
 features[variable][] = menu_parent_event
@@ -106,6 +108,7 @@ features[variable][] = pathauto_node_event_pattern
 features[variable][] = prepro
 features[variable][] = preprocess_css
 features[variable][] = preprocess_js
+features[variable][] = site_default_country
 features[variable][] = site_frontpage
 features[variable][] = theme_default
 
