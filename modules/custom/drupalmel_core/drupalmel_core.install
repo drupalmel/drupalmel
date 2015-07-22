@@ -68,7 +68,7 @@ function _drupalmel_core_flush_revert($modules = array()) {
 
 /**
  * Enable persistent update module, run this modules persistent update hook and
- * add Realityloop blog feed.
+ * add blog feeds.
  */
 function drupalmel_core_update_7000() {
   // Enable persistent update module.
@@ -77,11 +77,17 @@ function drupalmel_core_update_7000() {
   // Run this modules persistent update hook.
   drupalmel_core_persistent_update();
 
-  // Add Realityloop blog feed.
-  $node = new stdClass();
-  $node->type = 'blog_feed';
-  node_object_prepare($node);
-  $node->title = 'Realityloop';
-  $node->feeds['FeedsHTTPFetcher']['source'] = 'http://realityloop.com/tags/drupal-planet/feed';
-  node_save($node);
+  // Add blog feeds.
+  $feeds = array(
+    'Kattekrab'   => 'http://kattekrab.net/taxonomy/term/322/feed',
+    'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
+  );
+  foreach ($feeds as $name => $feed) {
+    $node       = new stdClass();
+    $node->type = 'blog_feed';
+    node_object_prepare($node);
+    $node->title                               = $name;
+    $node->feeds['FeedsHTTPFetcher']['source'] = $feed;
+    node_save($node);
+  }
 }
