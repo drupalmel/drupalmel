@@ -1,0 +1,27 @@
+.pane-blockify-blockify-site-name {
+  h1 {
+    font-size: 2em;
+    margin-top: -0.66em;
+    text-align: center;
+
+    @include respond-to('tablet') {
+      font-size: 3.5em;
+    }
+
+    @include respond-to('desktop') {
+      font-size: 5.5em;
+    }
+
+    @include respond-to('wide') {
+      font-size: 7em;
+    }
+
+    .part-drupal {
+      color: $color-blue-drupal;
+    }
+
+    .part-melbourne {
+      color: $color-orange;
+    }
+  }
+}

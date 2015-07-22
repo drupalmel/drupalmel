@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Installation functions for DrupalMel core feature.
+ */
+
+/**
+ * Implements hook_persistent_update().
+ */
+function drupalmel_core_persistent_update() {
+  // Flush caches and revert features.
+  _drupalmel_core_flush_revert();
+}
+
+/**
+ * Helper function; Flush caches and revert features.
+ *
+ * @param $modules
+ *   An array of modules to perform a hard refresh on.
+ */
+function _drupalmel_core_flush_revert($modules = array()) {
+  if (empty($modules)) {
+    $modules = basename(__FILE__, '.install');
+  }
+  if (!is_array($modules)) {
+    $modules = array($modules);
+  }
+
+  $revert = array();
+  foreach ($modules as $module) {
+    $info = system_get_info('module', $module);
+
+    // Enable all dependencies.
+    module_enable($info['dependencies']);
+
+    // Forcefully clear Features caches.
+    module_load_include('inc', 'features', 'features.export');
+    foreach (array_keys($info['features']) as $component) {
+      if ($component == 'features_api') {
+        continue;
+      }
+
+      features_get_components($component, NULL, TRUE);
+      features_include_defaults($component, TRUE);
+      features_get_default($component, $module, TRUE, TRUE);
+    }
+
+    // Build components list for feature revert.
+    $revert[$module] = array_keys($info['features']);
+  }
+
+  // Flush Prepro cache.
+  if (module_exists('prepro')) {
+    cache_clear_all('prepro:map', 'cache_prepro');
+  }
+
+  // Flush all standard Drupal caches.
+  drupal_flush_all_caches();
+
+  // Revert all feature components except for 'OAuth Connector providers'.
+  if (isset($info['features']['oauthconnector_provider'])) {
+    unset($info['features']['oauthconnector_provider']);
+  }
+  $components = array_keys($info['features']);
+  features_revert(array(basename(__FILE__, '.install') => $components));
+}

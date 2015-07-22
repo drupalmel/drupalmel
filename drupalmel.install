@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Install file for DrupalMel.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function drupalmel_install() {
+  // Ensure DrupalMel theme is enabled and Bartik is disabled.
+  theme_enable(array('drupalmel_theme'));
+  theme_disable(array('bartik'));
+}

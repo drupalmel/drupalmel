@@ -1,0 +1,20 @@
+$color-black: #000;
+$color-white: #FFF;
+
+$color-blue-dark: #304354;
+.color-bg-blue-dark {
+  background-color: $color-blue-dark;
+  color: $color-white;
+}
+
+$color-blue-drupal: #428BCA;
+.color-bg-blue-drupal {
+  background-color: $color-blue-drupal;
+  color: $color-white;
+}
+
+$color-orange: #F89A20;
+.color-bg-orange {
+  background-color: $color-orange;
+  color: $color-white;
+}

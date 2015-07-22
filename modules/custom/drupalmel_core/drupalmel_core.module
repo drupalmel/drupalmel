@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Code for the DrupalMel core feature.
+ */
+
+/**
+ * Features include.
+ */
+include_once 'drupalmel_core.features.inc';
+
+/**
+ * Include additional files.
+ */
+$dir_name  = dirname(__FILE__);
+$includes = file_scan_directory("{$dir_name}/includes", '/.inc$/');
+foreach (module_list() as $module) {
+  if (isset($includes[$file = "{$dir_name}/includes/{$module}.inc"])) {
+    require_once $file;
+  }
+}

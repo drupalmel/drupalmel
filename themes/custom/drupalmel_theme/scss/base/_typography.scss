@@ -1,0 +1,18 @@
+@import "compass/typography/links/unstyled-link";
+
+// TODO - Replace with compass mixin.
+@font-face {
+  font-family: 'BreeRegular';
+  src: url('../fonts/BreeRegular/breeregular.eot');
+  src: url('../fonts/BreeRegular/breeregular.eot') format('embedded-opentype'), url('../fonts/BreeRegular/breeregular.woff2') format('woff2'), url('../fonts/BreeRegular/breeregular.woff') format('woff'), url('../fonts/BreeRegular/breeregular.ttf') format('truetype'), url('../fonts/BreeRegular/breeregular.svg#BreeRegular') format('svg');
+}
+
+a {
+  &:active, &:focus, &:hover {
+    @include unstyled-link;
+  }
+}
+
+h1, h2, h3 {
+  font-family: 'BreeRegular';
+}

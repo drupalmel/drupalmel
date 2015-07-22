@@ -1,0 +1,16 @@
+name = DrupalMelbourne
+description = Installation profile for DrupalMelbourne
+core = 7.x
+
+
+
+; Dependencies
+
+dependencies[] = drupalmel_core
+
+
+
+; Profiler - Variables
+
+variables[site_mail] = drupalmelbourne@gmail.com
+variables[site_name] = DrupalMelbourne

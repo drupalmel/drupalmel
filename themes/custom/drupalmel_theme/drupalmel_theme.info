@@ -1,0 +1,30 @@
+name = DrupalMel
+description = DrupalMel; A Bootstrap Sub-theme.
+core = 7.x
+base theme = bootstrap
+
+
+
+; Fonts
+
+fonts[google_fonts_api][] = "Bree Serif&subset=latin#regular"
+
+
+
+; Regions
+
+regions[content] = Content
+regions[footer]  = Footer
+
+
+
+; Settings
+
+settings[bootstrap_navbar_inverse] = 1
+settings[bootstrap_navbar_position] = fixed-top
+
+
+
+; Stylesheets
+
+stylesheets[all][] = scss/style.scss
