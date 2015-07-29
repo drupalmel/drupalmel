@@ -10,14 +10,7 @@ dependencies[] = drupalmel_core
 
 
 
-; Profiler - Variables
-
-variables[site_mail] = drupalmelbourne@gmail.com
-variables[site_name] = DrupalMelbourne
-
-
-
-; Profiler - Default content
+; Profiler - Nodes
 
 nodes[kattekrab][uid] = 1
 nodes[kattekrab][title] = Kattekrab
@@ -30,4 +23,11 @@ nodes[realityloop][title] = Realityloop
 nodes[realityloop][type] = blog_feed
 nodes[realityloop][feeds][FeedsHTTPFetcher][source] = http://realityloop.com/tags/drupal-planet/feed
 nodes[realityloop][language] = und
+
+
+
+; Profiler - Variables
+
+variables[site_mail] = drupalmelbourne@gmail.com
+variables[site_name] = DrupalMelbourne
 
