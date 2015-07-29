@@ -10,7 +10,24 @@ dependencies[] = drupalmel_core
 
 
 
+; Profiler - Nodes
+
+nodes[kattekrab][uid] = 1
+nodes[kattekrab][title] = Kattekrab
+nodes[kattekrab][type] = blog_feed
+nodes[kattekrab][feeds][FeedsHTTPFetcher][source] = http://kattekrab.net/taxonomy/term/322/feed
+nodes[kattekrab][language] = und
+
+nodes[realityloop][uid] = 1
+nodes[realityloop][title] = Realityloop
+nodes[realityloop][type] = blog_feed
+nodes[realityloop][feeds][FeedsHTTPFetcher][source] = http://realityloop.com/tags/drupal-planet/feed
+nodes[realityloop][language] = und
+
+
+
 ; Profiler - Variables
 
 variables[site_mail] = drupalmelbourne@gmail.com
 variables[site_name] = DrupalMelbourne
+
