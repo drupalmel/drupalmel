@@ -10,6 +10,13 @@ dependencies[] = drupalmel_core
 
 
 
+; Files - Simpletest
+
+; No Simpletests defined and/or needed yet.
+; files[] = tests/drupalmel.test
+
+
+
 ; Profiler - Nodes
 
 nodes[kattekrab][uid] = 1

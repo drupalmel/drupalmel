@@ -3,6 +3,7 @@
 libraries/*
 modules/*
 !modules/custom
+tests/behat/vendor
 themes/*
 !themes/custom
 

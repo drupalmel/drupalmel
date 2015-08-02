@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Tests for the DrupalMelbourne website.
+ */
+
+/**
+ * Class DrupalMelTestCase
+ */
+class DrupalMelTestCase extends DrupalWebTestCase {
+  var $admin_user = NULL;
+
+  /**
+   * @return array
+   */
+  public static function getInfo() {
+    return array(
+      'name'        => 'Site functionality',
+      'description' => 'Tests DrupalMelbourne site functionality.',
+      'group'       => 'DrupalMelbourne',
+    );
+  }
+
+  /**
+   * Setup a Drupal site for Wysiwyg Fields tests.
+   */
+  function setUp() {
+    parent::setUp(array('field_ui', 'wysiwyg_fields'));
+
+    $this->admin_user = $this->drupalCreateUser();
+  }
+}
