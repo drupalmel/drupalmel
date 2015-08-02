@@ -10,13 +10,20 @@ dependencies[] = drupalmel_core
 
 
 
+; Files - Simpletest
+
+; No Simpletests defined and/or needed yet.
+; files[] = tests/drupalmel.test
+
+
+
 ; Profiler - Nodes
 
-nodes[kattekrab][uid] = 1
-nodes[kattekrab][title] = Kattekrab
-nodes[kattekrab][type] = blog_feed
-nodes[kattekrab][feeds][FeedsHTTPFetcher][source] = http://kattekrab.net/taxonomy/term/322/feed
-nodes[kattekrab][language] = und
+; nodes[kattekrab][uid] = 1
+; nodes[kattekrab][title] = Kattekrab
+; nodes[kattekrab][type] = blog_feed
+; nodes[kattekrab][feeds][FeedsHTTPFetcher][source] = http://kattekrab.net/taxonomy/term/322/feed
+; nodes[kattekrab][language] = und
 
 nodes[realityloop][uid] = 1
 nodes[realityloop][title] = Realityloop

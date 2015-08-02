@@ -82,7 +82,7 @@ projects[mailchimp][patch][] = https://www.drupal.org/files/issues/intgroups_che
 
 projects[meetup][download][type] = git
 projects[meetup][download][url] = http://git.drupal.org/sandbox/realityloop/1967232.git
-projects[meetup][download][revision] = dab9e2c
+projects[meetup][download][revision] = f158dbf
 
 projects[module_filter][version] = 2.0
 
