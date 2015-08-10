@@ -117,6 +117,7 @@ features[variable][] = cache
 features[variable][] = cache_lifetime
 features[variable][] = configurable_timezones
 features[variable][] = date_default_timezone
+features[variable][] = date_format_short
 features[variable][] = field_bundle_settings_node__blog
 features[variable][] = field_bundle_settings_node__event
 features[variable][] = menu_options_blog
