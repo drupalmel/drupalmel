@@ -91,3 +91,13 @@ function drupalmel_core_update_7000() {
     node_save($node);
   }
 }
+
+function drupalmel_core_update_7001() {
+  // Add Flink aka Rik deBoer's blog feed
+  $node       = new stdClass();
+  $node->type = 'blog_feed';
+  node_object_prepare($node);
+  $node->title                               = 'Flink';
+  $node->feeds['FeedsHTTPFetcher']['source'] = 'http://flink.com.au/taxonomy/term/1/feed';
+  node_save($node);
+}
