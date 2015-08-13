@@ -81,6 +81,7 @@ function drupalmel_core_update_7000() {
   $feeds = array(
     'Kattekrab'   => 'http://kattekrab.net/taxonomy/term/322/feed',
     'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
+    'Flink' => 'http://flink.com.au/taxonomy/term/1/feed',
   );
   foreach ($feeds as $name => $feed) {
     $node       = new stdClass();
