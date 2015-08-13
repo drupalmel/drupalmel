@@ -19,23 +19,23 @@ dependencies[] = drupalmel_core
 
 ; Profiler - Nodes
 
-; nodes[kattekrab][uid] = 1
-; nodes[kattekrab][title] = Kattekrab
-; nodes[kattekrab][type] = blog_feed
-; nodes[kattekrab][feeds][FeedsHTTPFetcher][source] = http://kattekrab.net/taxonomy/term/322/feed
-; nodes[kattekrab][language] = und
+nodes[flink][uid] = 1
+nodes[flink][title] = Flink
+nodes[flink][type] = blog_feed
+nodes[flink][feeds][FeedsHTTPFetcher][source] = http://flink.com.au/taxonomy/term/1/feed
+nodes[flink][language] = und
+
+nodes[kattekrab][uid] = 1
+nodes[kattekrab][title] = Kattekrab
+nodes[kattekrab][type] = blog_feed
+nodes[kattekrab][feeds][FeedsHTTPFetcher][source] = http://kattekrab.net/taxonomy/term/322/feed
+nodes[kattekrab][language] = und
 
 nodes[realityloop][uid] = 1
 nodes[realityloop][title] = Realityloop
 nodes[realityloop][type] = blog_feed
 nodes[realityloop][feeds][FeedsHTTPFetcher][source] = http://realityloop.com/tags/drupal-planet/feed
 nodes[realityloop][language] = und
-
-nodes[flink][uid] = 1
-nodes[flink][title] = Flink
-nodes[flink][type] = blog_feed
-nodes[flink][feeds][FeedsHTTPFetcher][source] = http://flink.com.au/taxonomy/term/1/feed
-nodes[flink][language] = und
 
 
 
