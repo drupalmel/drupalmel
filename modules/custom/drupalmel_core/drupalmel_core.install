@@ -92,8 +92,10 @@ function drupalmel_core_update_7000() {
   }
 }
 
+/**
+ * Add Flink aka Rik deBoer's blog feed
+ */
 function drupalmel_core_update_7001() {
-  // Add Flink aka Rik deBoer's blog feed
   $node       = new stdClass();
   $node->type = 'blog_feed';
   node_object_prepare($node);
