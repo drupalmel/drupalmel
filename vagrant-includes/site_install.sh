@@ -11,9 +11,6 @@ if [ ! -f /home/vagrant/siteinstalled ] ; then
   sudo apt-get install unzip
 
   # Tidy up
-  if [ ! -f /drupal/sites/default/settings.php ] ; then
-    drush --root=/drupal sql-drop -y -q >/dev/null
-  fi
   sudo chmod -R +w /drupal/ >/dev/null
   sudo rm -rf /drupal/* /drupal/.??* >/dev/null
 
