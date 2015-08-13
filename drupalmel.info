@@ -31,11 +31,11 @@ nodes[realityloop][type] = blog_feed
 nodes[realityloop][feeds][FeedsHTTPFetcher][source] = http://realityloop.com/tags/drupal-planet/feed
 nodes[realityloop][language] = und
 
-nodes[realityloop][uid] = 1
-nodes[realityloop][title] = Flink
-nodes[realityloop][type] = blog_feed
-nodes[realityloop][feeds][FeedsHTTPFetcher][source] = http://flink.com.au/taxonomy/term/1/feed
-nodes[realityloop][language] = und
+nodes[flink][uid] = 1
+nodes[flink][title] = Flink
+nodes[flink][type] = blog_feed
+nodes[flink][feeds][FeedsHTTPFetcher][source] = http://flink.com.au/taxonomy/term/1/feed
+nodes[flink][language] = und
 
 
 
