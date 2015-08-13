@@ -81,7 +81,6 @@ function drupalmel_core_update_7000() {
   $feeds = array(
     'Kattekrab'   => 'http://kattekrab.net/taxonomy/term/322/feed',
     'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
-    'Flink' => 'http://flink.com.au/taxonomy/term/1/feed',
   );
   foreach ($feeds as $name => $feed) {
     $node       = new stdClass();
@@ -91,4 +90,14 @@ function drupalmel_core_update_7000() {
     $node->feeds['FeedsHTTPFetcher']['source'] = $feed;
     node_save($node);
   }
+}
+
+function drupalmel_core_update_7001() {
+  // Add Flink aka Rik deBoer's blog feed
+  $node       = new stdClass();
+  $node->type = 'blog_feed';
+  node_object_prepare($node);
+  $node->title                               = 'Flink';
+  $node->feeds['FeedsHTTPFetcher']['source'] = 'http://flink.com.au/taxonomy/term/1/feed';
+  node_save($node);
 }
