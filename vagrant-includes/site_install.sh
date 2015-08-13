@@ -20,6 +20,11 @@ if [ ! -f /home/vagrant/siteinstalled ] ; then
   # Build site
   cd /drupal && drush make /vagrant/stub.make .
 
+  # Create files dir.
+  sudo adduser www-data dialout >/dev/null
+  mkdir -p /drupal/sites/default/files >/dev/null
+  sudo chmod -R 775 /drupal/sites/default/files >/dev/null
+
   # Recreate .gitkeep
   sudo touch /drupal/.gitkeep
 
