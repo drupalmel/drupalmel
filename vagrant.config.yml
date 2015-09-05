@@ -1,0 +1,24 @@
+---
+# Vagrant config.
+vagrant_ip: 192.168.40.40
+vagrant_memory: 1024
+vagrant_cpus: 2
+
+# Drupal settings
+drupal_domain: "dm.local"
+drupal_core_path: "/drupal/docroot"
+drupal_site_name: "Drupal Melbourne"
+drupal_install_profile: drupalmel
+drupal_enable_modules: []
+drupal_account_name: vagrant
+drupal_account_pass: vagrant
+drush_makefile_path: /drupal/stub.make
+build_makefile: true
+install_site: true
+
+# Apache config
+apache_vhosts:
+  - {servername: "{{ drupal_domain }}", documentroot: "{{ drupal_core_path }}"}
+
+# Add any extra packages you'd like to install.
+extra_packages: [ 'unzip' ]
