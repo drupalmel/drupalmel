@@ -49,20 +49,4 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
 
-  # Vagrant Host Updater
-  if Vagrant.has_plugin?('vagrant-hostsupdater')
-    aliases = Array.new()
-    if vconfig['apache_vhosts']
-      vconfig['apache_vhosts'].each do |vhost|
-        aliases.push(vhost['servername'])
-      end
-    end
-
-    aliases.delete_if { |x| x == hostname }
-
-    if aliases.any?
-    config.hostsupdater.aliases = aliases
-    end
-  end
-
 end
