@@ -6,7 +6,7 @@ api = 2
 ; Drupal core
 
 projects[drupal][type] = core
-projects[drupal][version] = 7.38
+projects[drupal][version] = 7.39
 
 
 
