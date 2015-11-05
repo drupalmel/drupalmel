@@ -9,6 +9,7 @@ version = 7.x-1.0
 ; Dependencies
 
 dependencies[] = addressfield
+dependencies[] = apihub
 dependencies[] = blockify
 dependencies[] = breakpoints
 dependencies[] = context
@@ -21,8 +22,11 @@ dependencies[] = date
 dependencies[] = date_api
 dependencies[] = date_views
 dependencies[] = dindent
+dependencies[] = email
 dependencies[] = entity
 dependencies[] = entity_token
+dependencies[] = entityform
+dependencies[] = entityform_block
 dependencies[] = environment_indicator
 dependencies[] = escape_admin
 dependencies[] = features
@@ -32,6 +36,7 @@ dependencies[] = filter
 dependencies[] = image
 dependencies[] = jquery_update
 dependencies[] = libraries
+dependencies[] = markup
 dependencies[] = meetup
 dependencies[] = menu
 dependencies[] = navbar
@@ -47,6 +52,8 @@ dependencies[] = pathauto
 dependencies[] = persistent_update
 dependencies[] = picture
 dependencies[] = prepro
+dependencies[] = rules
+dependencies[] = rules_link
 dependencies[] = sassy
 dependencies[] = sassy_compass
 dependencies[] = semantic_panels
@@ -62,9 +69,17 @@ dependencies[] = views
 
 ; Features
 
+features[apihub_apis][] = slack
+
+features[apihub_methods][] = a2069739d98cb2e96219413db8896309
+features[apihub_methods][] = ae1804e855ad5bb06ec3abf06d79c01b
+features[apihub_methods][] = f1c6c72d4f9ad868217a46d53ba89ad3
+features[apihub_methods][] = faca9d3433422f3fc19a4ca83e26b195
+
 features[context][] = server-development
 features[context][] = theme-drupalmel
 
+features[ctools][] = apihub:apihub:1
 features[ctools][] = context:context:3
 features[ctools][] = feeds:feeds_importer_default:1
 features[ctools][] = feeds_tamper:feeds_tamper_default:2
@@ -72,6 +87,8 @@ features[ctools][] = meetup:default_meetup_groups:1
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
+
+features[entityform_type][] = slack_invite
 
 features[features_api][] = api:2
 
@@ -83,10 +100,18 @@ features[feeds_tamper][] = drupalmel_planet-blank_source_2-description_metatag
 features[field_base][] = body
 features[field_base][] = field_blog_post_image
 features[field_base][] = field_blog_post_url
+features[field_base][] = field_email_address
 features[field_base][] = field_event_address
 features[field_base][] = field_event_date
 features[field_base][] = field_event_url
+features[field_base][] = field_first_name
+features[field_base][] = field_last_name
+features[field_base][] = field_markup
 
+features[field_instance][] = entityform-slack_invite-field_email_address
+features[field_instance][] = entityform-slack_invite-field_first_name
+features[field_instance][] = entityform-slack_invite-field_last_name
+features[field_instance][] = entityform-slack_invite-field_markup
 features[field_instance][] = node-blog-body
 features[field_instance][] = node-blog-field_blog_post_image
 features[field_instance][] = node-blog-field_blog_post_url
@@ -109,6 +134,12 @@ features[node][] = event
 
 features[page_manager_pages][] = homepage
 
+features[rules_config][] = rules_link_condition_slack_invite_approve
+features[rules_config][] = rules_link_set_slack_invite_approve
+features[rules_config][] = rules_slack_invite_notify_slack
+
+features[rules_link][] = slack_invite_approve
+
 features[user_permission][] = access content
 
 features[variable][] = admin_theme
@@ -118,6 +149,7 @@ features[variable][] = cache_lifetime
 features[variable][] = configurable_timezones
 features[variable][] = date_default_timezone
 features[variable][] = date_format_short
+features[variable][] = entityform_block_types
 features[variable][] = field_bundle_settings_node__blog
 features[variable][] = field_bundle_settings_node__event
 features[variable][] = menu_options_blog
