@@ -36,7 +36,7 @@ projects[context_server_vars][download][revision] = 1d61d97
 
 projects[context_variable][download][revision] = b6e3219
 
-projects[ctools][version] = 1.7
+projects[ctools][version] = 1.9
 
 projects[date][version] = 2.8
 
@@ -76,7 +76,7 @@ projects[google_analytics][patch][] = https://www.drupal.org/files/issues/variab
 
 projects[job_scheduler][version] = 2.0-alpha3
 
-projects[jquery_update][version] = 2.6
+projects[jquery_update][version] = 2.7
 
 projects[libraries][version] = 2.2
 
