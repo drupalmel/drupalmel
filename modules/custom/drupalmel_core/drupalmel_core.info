@@ -141,6 +141,7 @@ features[rules_config][] = rules_slack_invite_notify_slack
 features[rules_link][] = slack_invite_approve
 
 features[user_permission][] = access content
+features[user_permission][] = access rules link slack_invite_approve
 
 features[variable][] = admin_theme
 features[variable][] = blockify_blocks
