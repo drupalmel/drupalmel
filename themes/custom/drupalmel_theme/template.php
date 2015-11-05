@@ -56,3 +56,27 @@ function drupalmel_theme_preprocess_semantic_panels_pane(&$variables) {
       break;
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function drupalmel_theme_form_alter(&$form, $form_state, $form_id) {
+  if (isset($form['#entity_type']) && $form['#entity_type'] == 'entityform') {
+    foreach (element_children($form) as $child) {
+      $langcode = isset($form['child']['#language']) ? $form['child']['#language'] : LANGUAGE_NONE;
+      if (isset($form[$child][$langcode][0])) {
+        foreach (element_children($form[$child][$langcode][0]) as $value) {
+          if (in_array($value, array('email', 'value')) && $form[$child][$langcode][0][$value]['#type'] == 'textfield') {
+            $form[$child][$langcode][0][$value]['#attributes']['placeholder'] = $form[$child][$langcode][0][$value]['#title'];
+            $form[$child][$langcode][0][$value]['#title_display'] = 'invisible';
+          }
+        }
+      }
+    }
+    $form['actions']['submit']['#attributes']['class'][] = 'btn-primary';
+  }
+}

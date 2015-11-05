@@ -14,6 +14,10 @@ defaults[projects][type] = module
 
 projects[addressfield][version] = 1.1
 
+projects[apihub][download][type] = git
+projects[apihub][download][url] = https://github.com/Realityloop/apihub.git
+projects[apihub][download][revision] = bfeddd9
+
 projects[blockify][version] = 1.2
 
 projects[breakpoints][version] = 1.3
@@ -32,7 +36,7 @@ projects[context_server_vars][download][revision] = 1d61d97
 
 projects[context_variable][download][revision] = b6e3219
 
-projects[ctools][version] = 1.7
+projects[ctools][version] = 1.9
 
 projects[date][version] = 2.8
 
@@ -72,9 +76,11 @@ projects[google_analytics][patch][] = https://www.drupal.org/files/issues/variab
 
 projects[job_scheduler][version] = 2.0-alpha3
 
-projects[jquery_update][version] = 2.6
+projects[jquery_update][version] = 2.7
 
 projects[libraries][version] = 2.2
+
+projects[markup][version] = 1.2
 
 projects[mailchimp][version] = 3.4
 ; Errors when adding a Mailchimp Subscribe field - https://www.drupal.org/node/2262321#comment-9067843
@@ -107,6 +113,12 @@ projects[picture][version] = 2.11
 projects[prepro][version] = 1.4
 
 projects[reroute_email][version] = 1.2
+
+projects[rules][version] = 2.9
+
+projects[rules_link][version] = 2.0
+; Add anonymous access token token - https://www.drupal.org/node/2609658#comment-10534968
+projects[rules_link][patch][] = https://www.drupal.org/files/issues/anonymous_access_token-2609658-2.patch
 
 projects[sassy][version] = 2.13
 ; Fix squish-text mixin - http://drupal.org/node/1539310#comment-7284702

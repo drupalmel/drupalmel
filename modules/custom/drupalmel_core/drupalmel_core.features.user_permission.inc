@@ -20,5 +20,14 @@ function drupalmel_core_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'access rules link slack_invite_approve'.
+  $permissions['access rules link slack_invite_approve'] = array(
+    'name' => 'access rules link slack_invite_approve',
+    'roles' => array(
+      'anonymous user' => 'anonymous user',
+    ),
+    'module' => 'rules_link',
+  );
+
   return $permissions;
 }

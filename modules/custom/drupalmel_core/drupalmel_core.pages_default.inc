@@ -105,6 +105,7 @@ function drupalmel_core_default_page_manager_pages() {
         'children' => array(
           0 => 2,
           1 => 3,
+          2 => 4,
         ),
         'parent' => 'canvas',
         'wrapper' => 'div',
@@ -175,6 +176,31 @@ function drupalmel_core_default_page_manager_pages() {
         'container_class_add' => 0,
         'container_full_class_add' => 0,
       ),
+      4 => array(
+        'type' => 'column',
+        'parent' => '1',
+        'children' => array(
+          0 => 'slack',
+        ),
+        'wrapper' => 'div',
+        'element_id_default' => 0,
+        'element_id' => '',
+        'class' => '',
+        'class_default_add' => 0,
+        'contains' => 'region',
+      ),
+      'slack' => array(
+        'type' => 'region',
+        'title' => 'Slack',
+        'parent' => '4',
+        'wrapper' => 'div',
+        'element_id_default' => 0,
+        'element_id' => '',
+        'class' => '',
+        'class_default_add' => 0,
+        'container_class_add' => 0,
+        'container_full_class_add' => 0,
+      ),
     ),
   );
   $display->panel_settings = array(
@@ -182,6 +208,8 @@ function drupalmel_core_default_page_manager_pages() {
       'default' => NULL,
       'center' => NULL,
       'blog' => NULL,
+      'content' => NULL,
+      'slack' => NULL,
     ),
     'style' => 'naked',
     'content' => array(
@@ -375,6 +403,42 @@ function drupalmel_core_default_page_manager_pages() {
     $pane->uuid = '4a7fc074-4022-43b8-b556-92cb1dce7af6';
     $display->content['new-4a7fc074-4022-43b8-b556-92cb1dce7af6'] = $pane;
     $display->panels['content'][0] = 'new-4a7fc074-4022-43b8-b556-92cb1dce7af6';
+    $pane = new stdClass();
+    $pane->pid = 'new-73841c1a-61e3-4f00-bd93-7f880c0564d4';
+    $pane->panel = 'slack';
+    $pane->type = 'block';
+    $pane->subtype = 'entityform_block-slack_invite';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'hide_classes' => array(
+          'hidden-xs' => 0,
+          'hidden-sm' => 0,
+          'hidden-md' => 0,
+          'hidden-lg' => 0,
+        ),
+        'additional_classes' => array(
+          'pull-left' => 0,
+          'pull-right' => 0,
+          'clearfix' => 0,
+        ),
+      ),
+      'style' => 'bootstrap_styles:well',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '73841c1a-61e3-4f00-bd93-7f880c0564d4';
+    $display->content['new-73841c1a-61e3-4f00-bd93-7f880c0564d4'] = $pane;
+    $display->panels['slack'][0] = 'new-73841c1a-61e3-4f00-bd93-7f880c0564d4';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
