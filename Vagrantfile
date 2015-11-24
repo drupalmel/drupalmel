@@ -27,6 +27,12 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/drupal",
     type: "nfs",
     id: "drupal"
+  config.vm.synced_folder "./modules/custom", "/drupal/docroot/profiles/drupalmel/modules/custom",
+    type: "nfs",
+    id: "modules"
+  config.vm.synced_folder "./themes/custom", "/drupal/docroot/profiles/drupalmel/themes/custom",
+    type: "nfs",
+    id: "themes"
 
   # Upload vagrant.config.yml
   config.vm.provision "vagrant_config", type: "file" do |s|

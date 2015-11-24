@@ -19,12 +19,3 @@ install_site: true
 # Apache config
 apache_vhosts:
   - {servername: "{{ drupal_domain }}", documentroot: "{{ drupal_core_path }}"}
-
-# Symlinks
-symlinks:
-  - src: /drupal/modules/custom
-    link: /drupal/docroot/profiles/drupalmel/modules/custom
-    force: yes
-  - src: /drupal/themes/custom
-    link: /drupal/docroot/profiles/drupalmel/themes/custom
-    force: yes
