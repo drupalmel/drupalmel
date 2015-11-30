@@ -100,6 +100,8 @@ function drupalmel_core_default_rules_configuration() {
               "channel" : "#_random",
               "text" : "[entityform:field-first-name] [entityform:field-last-name] ([entityform:field-email-address]) has requested an invitation to Slack.\\r\\n\\r\\nIf you know this individual as DrupalMelbournian, click the following link to approve this request: [site:url]slack-invite\\/[entityform:entityform-id]\\/[entityform:rules_link_token_anonymous]",
               "username" : "melbourne.drupal.org.au",
+              "unfurl_links" : "0",
+              "unfurl_media" : "0",
               "icon_url" : "http:\\/\\/www.gravatar.com\\/avatar\\/31266bcfe7128aaf0854513cf3fa7563"
             },
             "PROVIDE" : { "result" : { "result" : "Result" } }
