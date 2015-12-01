@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/drupalmel/drupalmel.svg?branch=master)](https://travis-ci.org/drupalmel/drupalmel)
 
-This is the Drupal install profile / makefile source for the DrupalMelbourne
+This is the Drupal install profile / makefile source for the [DrupalMelbourne](http://melbourne.drupal.org.au/)
 community website.
 
 
