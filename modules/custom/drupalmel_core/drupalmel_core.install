@@ -14,9 +14,9 @@ function drupalmel_core_persistent_update() {
 }
 
 /**
- * Helper function; Flush caches and revert features.
+ * Helper function to flush caches and revert features.
  *
- * @param $modules
+ * @param array $modules
  *   An array of modules to perform a hard refresh on.
  */
 function _drupalmel_core_flush_revert($modules = array()) {
@@ -27,7 +27,6 @@ function _drupalmel_core_flush_revert($modules = array()) {
     $modules = array($modules);
   }
 
-  $revert = array();
   foreach ($modules as $module) {
     $info = system_get_info('module', $module);
 
@@ -45,9 +44,6 @@ function _drupalmel_core_flush_revert($modules = array()) {
       features_include_defaults($component, TRUE);
       features_get_default($component, $module, TRUE, TRUE);
     }
-
-    // Build components list for feature revert.
-    $revert[$module] = array_keys($info['features']);
   }
 
   // Flush Prepro cache.
@@ -67,8 +63,7 @@ function _drupalmel_core_flush_revert($modules = array()) {
 }
 
 /**
- * Enable persistent update module, run this modules persistent update hook and
- * add blog feeds.
+ * Enables persistent update module and run this modules persistent update hook.
  */
 function drupalmel_core_update_7000() {
   // Enable persistent update module.
@@ -76,30 +71,24 @@ function drupalmel_core_update_7000() {
 
   // Run this modules persistent update hook.
   drupalmel_core_persistent_update();
-
-  // Add blog feeds.
-  $feeds = array(
-    'Kattekrab'   => 'http://kattekrab.net/taxonomy/term/322/feed',
-    'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
-  );
-  foreach ($feeds as $name => $feed) {
-    $node       = new stdClass();
-    $node->type = 'blog_feed';
-    node_object_prepare($node);
-    $node->title                               = $name;
-    $node->feeds['FeedsHTTPFetcher']['source'] = $feed;
-    node_save($node);
-  }
 }
 
 /**
- * Add Flink aka Rik deBoer's blog feed
+ * Adds blog feeds.
  */
 function drupalmel_core_update_7001() {
-  $node       = new stdClass();
-  $node->type = 'blog_feed';
-  node_object_prepare($node);
-  $node->title                               = 'Flink';
-  $node->feeds['FeedsHTTPFetcher']['source'] = 'http://flink.com.au/taxonomy/term/1/feed';
-  node_save($node);
+  $feeds = array(
+    'Kattekrab' => 'http://kattekrab.net/taxonomy/term/322/feed',
+    'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
+    'Flink' => 'http://flink.com.au/taxonomy/term/1/feed',
+  );
+
+  foreach ($feeds as $name => $feed) {
+    $node = new stdClass();
+    $node->type = 'blog_feed';
+    node_object_prepare($node);
+    $node->title = $name;
+    $node->feeds['FeedsHTTPFetcher']['source'] = $feed;
+    node_save($node);
+  }
 }
