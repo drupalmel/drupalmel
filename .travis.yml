@@ -81,23 +81,25 @@ mysql:
 
 before_install:
   - composer self-update
-  - cd ./tests
+  - composer require --no-interaction alexdesignworks/dcr:0.0.*
   - composer global require "lionsad/drupal_ti:1.*"
-  - drupal-ti before_install
-
+  - cd $TRAVIS_BUILD_DIR/tests && drupal-ti before_install
 
 install:
   - drupal-ti install
+  - cd $TRAVIS_BUILD_DIR && bash vendor/bin/dcr install
 
 before_script:
-  - drupal-ti --include drupal_ti/scripts/before_script.sh
+  - cd $TRAVIS_BUILD_DIR/tests && drupal-ti --include drupal_ti/scripts/before_script.sh
 
 script:
-  - drupal-ti --include drupal_ti/scripts/script.sh
+  # Lint code.
+  - cd $TRAVIS_BUILD_DIR && source ~/.profile && dcr
+  # Run tests.
+  - cd $TRAVIS_BUILD_DIR/tests && drupal-ti --include drupal_ti/scripts/script.sh
 
 after_script:
-  - drupal-ti after_script
+  - cd $TRAVIS_BUILD_DIR/tests && drupal-ti after_script
 
 notifications:
   email: false
-
