@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "alexdesignworks/dcr": "0.0.*"
+    }
+}
