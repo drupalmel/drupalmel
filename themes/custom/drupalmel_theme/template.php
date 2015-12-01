@@ -35,9 +35,11 @@ function drupalmel_theme_preprocess_semantic_panels_pane(&$variables) {
       preg_match_all('/([A-Z][a-z]+|[0-9]+)/', variable_get('site_name', NULL), $parts);
 
       $name = '';
-      foreach ($parts[1] as $delta => $part) {
-        $id = drupal_clean_css_identifier($part);
-        $name .= '<span class="part-' . $delta . ' part-' . $id . '">' . filter_xss($part) . '</span>';
+      if (isset($parts[1])) {
+        foreach ($parts[1] as $delta => $part) {
+          $id = drupal_clean_css_identifier($part);
+          $name .= '<span class="part-' . $delta . ' part-' . $id . '">' . filter_xss($part) . '</span>';
+        }
       }
       $variables['content_html'] = str_replace('<span>' . variable_get('site_name', NULL) . '</span>', $name, $variables['content_html']);
       break;
