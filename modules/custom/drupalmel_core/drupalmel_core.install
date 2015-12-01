@@ -63,7 +63,8 @@ function _drupalmel_core_flush_revert($modules = array()) {
 }
 
 /**
- * Enables persistent update module and run this modules persistent update hook.
+ * Enables persistent update module, runs this modules persistent update hook
+ * and adds blog feeds.
  */
 function drupalmel_core_update_7000() {
   // Enable persistent update module.
@@ -71,18 +72,12 @@ function drupalmel_core_update_7000() {
 
   // Run this modules persistent update hook.
   drupalmel_core_persistent_update();
-}
 
-/**
- * Adds blog feeds.
- */
-function drupalmel_core_update_7001() {
+  // Add blog feeds.
   $feeds = array(
     'Kattekrab' => 'http://kattekrab.net/taxonomy/term/322/feed',
     'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
-    'Flink' => 'http://flink.com.au/taxonomy/term/1/feed',
   );
-
   foreach ($feeds as $name => $feed) {
     $node = new stdClass();
     $node->type = 'blog_feed';
@@ -91,4 +86,16 @@ function drupalmel_core_update_7001() {
     $node->feeds['FeedsHTTPFetcher']['source'] = $feed;
     node_save($node);
   }
+}
+
+/**
+ * Adds Flink aka Rik deBoer's blog feed.
+ */
+function drupalmel_core_update_7001() {
+  $node = new stdClass();
+  $node->type = 'blog_feed';
+  node_object_prepare($node);
+  $node->title = 'Flink';
+  $node->feeds['FeedsHTTPFetcher']['source'] = 'http://flink.com.au/taxonomy/term/1/feed';
+  node_save($node);
 }
