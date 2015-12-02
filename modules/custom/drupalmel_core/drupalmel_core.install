@@ -27,6 +27,7 @@ function _drupalmel_core_flush_revert($modules = array()) {
     $modules = array($modules);
   }
 
+  $revert = array();
   foreach ($modules as $module) {
     $info = system_get_info('module', $module);
 
@@ -44,6 +45,14 @@ function _drupalmel_core_flush_revert($modules = array()) {
       features_include_defaults($component, TRUE);
       features_get_default($component, $module, TRUE, TRUE);
     }
+
+    // Exclude 'OAuth Connector providers' from reverted components.
+    if (isset($info['features']['oauthconnector_provider'])) {
+      unset($info['features']['oauthconnector_provider']);
+    }
+
+    // Build components list for feature revert.
+    $revert[$module] = array_keys($info['features']);
   }
 
   // Flush Prepro cache.
@@ -54,12 +63,8 @@ function _drupalmel_core_flush_revert($modules = array()) {
   // Flush all standard Drupal caches.
   drupal_flush_all_caches();
 
-  // Revert all feature components except for 'OAuth Connector providers'.
-  if (isset($info['features']['oauthconnector_provider'])) {
-    unset($info['features']['oauthconnector_provider']);
-  }
-  $components = array_keys($info['features']);
-  features_revert(array(basename(__FILE__, '.install') => $components));
+  // Revert features components.
+  features_revert($revert);
 }
 
 /**
