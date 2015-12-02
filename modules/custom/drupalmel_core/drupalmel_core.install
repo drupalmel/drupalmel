@@ -14,9 +14,9 @@ function drupalmel_core_persistent_update() {
 }
 
 /**
- * Helper function; Flush caches and revert features.
+ * Helper function to flush caches and revert features.
  *
- * @param $modules
+ * @param array $modules
  *   An array of modules to perform a hard refresh on.
  */
 function _drupalmel_core_flush_revert($modules = array()) {
@@ -46,6 +46,11 @@ function _drupalmel_core_flush_revert($modules = array()) {
       features_get_default($component, $module, TRUE, TRUE);
     }
 
+    // Exclude 'OAuth Connector providers' from reverted components.
+    if (isset($info['features']['oauthconnector_provider'])) {
+      unset($info['features']['oauthconnector_provider']);
+    }
+
     // Build components list for feature revert.
     $revert[$module] = array_keys($info['features']);
   }
@@ -58,17 +63,13 @@ function _drupalmel_core_flush_revert($modules = array()) {
   // Flush all standard Drupal caches.
   drupal_flush_all_caches();
 
-  // Revert all feature components except for 'OAuth Connector providers'.
-  if (isset($info['features']['oauthconnector_provider'])) {
-    unset($info['features']['oauthconnector_provider']);
-  }
-  $components = array_keys($info['features']);
-  features_revert(array(basename(__FILE__, '.install') => $components));
+  // Revert features components.
+  features_revert($revert);
 }
 
 /**
- * Enable persistent update module, run this modules persistent update hook and
- * add blog feeds.
+ * Enables persistent update module, runs this modules persistent update hook
+ * and adds blog feeds.
  */
 function drupalmel_core_update_7000() {
   // Enable persistent update module.
@@ -79,27 +80,27 @@ function drupalmel_core_update_7000() {
 
   // Add blog feeds.
   $feeds = array(
-    'Kattekrab'   => 'http://kattekrab.net/taxonomy/term/322/feed',
+    'Kattekrab' => 'http://kattekrab.net/taxonomy/term/322/feed',
     'Realityloop' => 'http://realityloop.com/tags/drupal-planet/feed',
   );
   foreach ($feeds as $name => $feed) {
-    $node       = new stdClass();
+    $node = new stdClass();
     $node->type = 'blog_feed';
     node_object_prepare($node);
-    $node->title                               = $name;
+    $node->title = $name;
     $node->feeds['FeedsHTTPFetcher']['source'] = $feed;
     node_save($node);
   }
 }
 
 /**
- * Add Flink aka Rik deBoer's blog feed
+ * Adds Flink aka Rik deBoer's blog feed.
  */
 function drupalmel_core_update_7001() {
-  $node       = new stdClass();
+  $node = new stdClass();
   $node->type = 'blog_feed';
   node_object_prepare($node);
-  $node->title                               = 'Flink';
+  $node->title = 'Flink';
   $node->feeds['FeedsHTTPFetcher']['source'] = 'http://flink.com.au/taxonomy/term/1/feed';
   node_save($node);
 }

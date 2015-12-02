@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ruleset name="App">
+  <description>App custom PHP_CodeSniffer standards overrides.</description>
+  <!--
+    Use this ruleset to additionally customise PHPCS.
+    Do not use this standard directly with PHPCS, instead, use DCR standard
+    where this ruleset is already included.
+  -->
+
+  <!--Do not check generated files.-->
+  <exclude-pattern>*\.features\.*</exclude-pattern>
+  <exclude-pattern>*\.strongarm\.*</exclude-pattern>
+  <exclude-pattern>*\.context\.*</exclude-pattern>
+  <exclude-pattern>*\.pages_default\.*</exclude-pattern>
+  <exclude-pattern>*feeds_tamper*\.inc</exclude-pattern>
+
+  <!--Allow long arrays in tests for readability.-->
+  <rule ref="Drupal.Array.Array.LongLineDeclaration">
+    <exclude-pattern>*\.test</exclude-pattern>
+  </rule>
+
+  <!--Allow long function descriptions in install files.-->
+  <rule ref="Drupal.Commenting.DocComment.ShortSingleLine">
+    <exclude-pattern>*\.install</exclude-pattern>
+  </rule>
+
+  <!--Temporary disabled array indentation until
+  https://www.drupal.org/node/2580017#comment-10456213 is properly fixed. -->
+  <rule ref="Drupal.Array.Array.ArrayIndentation">
+    <exclude-pattern>*.*</exclude-pattern>
+  </rule>
+</ruleset>
