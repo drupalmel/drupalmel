@@ -1,0 +1,25 @@
+machine:
+  php:
+    version: 5.6.14
+  environment:
+    DRUPALMEL_PROFILE_NAME: drupalmel
+    DRUPALMEL_PROFILE_PATH: $HOME/drupalmel
+    DRUPALMEL_MAKEFILE: $HOME/drupalmel/local.make
+    DRUPALMEL_BUILD_PATH: $HOME/drupalmel_build
+    DRUPALMEL_DB_URL: mysql://ubuntu@127.0.0.1:3306/circle_test
+
+dependencies:
+  pre:
+    - "sudo composer self-update"
+    - "composer global require drush/drush:8.*"
+  override:
+    - "cd $(dirname $DRUPALMEL_MAKEFILE) && drush make $DRUPALMEL_MAKEFILE $DRUPALMEL_BUILD_PATH"
+
+database:
+  override:
+    - "drush --root=$DRUPALMEL_BUILD_PATH site-install $DRUPALMEL_PROFILE_NAME install_configure_form.update_status_module='array(FALSE,FALSE)' --db-url=$DRUPALMEL_DB_URL -y"
+
+test:
+  override:
+    # @FIXME we skip 'test' phase to test the site builds
+    - "/bin/true"
