@@ -71,6 +71,9 @@ env:
     # etc. to only output those channels.
     #- DRUPAL_TI_DEBUG_FILE_OUTPUT="selenium xvfb webserver"
 
+    # Suppresses checking PHP CLI version
+    - DRUSH_NO_MIN_PHP=1
+
   matrix:
     - DRUPAL_TI_RUNNERS="behat"
 
