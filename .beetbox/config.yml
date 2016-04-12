@@ -1,0 +1,13 @@
+---
+# Beetbox config.
+beet_domain: dm.local
+beet_root: "{{ beet_base }}/docroot"
+beet_site_name: "Drupal Melbourne"
+
+# Drupal settings.
+drupal_distro: drupalmel
+drupal_distro_makefile: "{{ beet_base }}/drupal-org.make"
+drupal_makefile_path: "{{ beet_base }}/stub.make"
+drupal_install_profile: "{{ drupal_distro }}"
+drupal_build_makefile: true
+drupal_install_site: true
