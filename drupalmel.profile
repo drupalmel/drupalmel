@@ -8,5 +8,6 @@
 /**
  * Include for Profiler library.
  */
-!function_exists('profiler_v2') ? require_once('libraries/profiler/profiler.inc') : FALSE;
+$profiler_path = DRUPAL_ROOT . '/profiles/drupalmel/libraries/profiler/profiler.inc';
+!function_exists('profiler_v2') ? require_once($profiler_path) : FALSE;
 profiler_v2('drupalmel');

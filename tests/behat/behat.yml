@@ -11,6 +11,12 @@ default:
     Behat\MinkExtension:
       goutte: ~
       selenium2: ~
+      base_url: "http://dm.local"
     Drupal\DrupalExtension:
       api_driver: "drupal"
+      blackbox: ~
       drush_driver: "drush"
+      drupal:
+        drupal_root: "../../docroot"
+      drush:
+        root: "../../docroot"

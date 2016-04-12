@@ -19,6 +19,11 @@
     <exclude-pattern>*\.test</exclude-pattern>
   </rule>
 
+  <!--Allow long array syntax.-->
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+    <severity>0</severity>
+  </rule>
+
   <!--Allow long function descriptions in install files.-->
   <rule ref="Drupal.Commenting.DocComment.ShortSingleLine">
     <exclude-pattern>*\.install</exclude-pattern>
