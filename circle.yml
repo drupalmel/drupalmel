@@ -1,0 +1,18 @@
+machine:
+  timezone:
+    Australia/Melbourne
+  php:
+    version: 5.6.2
+
+dependencies:
+  override:
+  # Install drush.
+  - composer global require --no-interaction drush/drush:8.*.*
+  # Install DCR code linter.
+  - cd $HOME/$CIRCLE_PROJECT_REPONAME && composer require --no-interaction alexdesignworks/dcr
+  - cd $HOME/$CIRCLE_PROJECT_REPONAME && bash vendor/bin/dcr install
+  
+test:
+  override:
+  # Lint code.
+  - source ~/.profile && cd $HOME/$CIRCLE_PROJECT_REPONAME && dcr
