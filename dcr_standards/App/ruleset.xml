@@ -13,11 +13,15 @@
   <exclude-pattern>*\.context\.*</exclude-pattern>
   <exclude-pattern>*\.pages_default\.*</exclude-pattern>
   <exclude-pattern>*feeds_tamper*\.inc</exclude-pattern>
-
-
+  
   <!--Allow long arrays in tests for readability.-->
   <rule ref="Drupal.Array.Array.LongLineDeclaration">
     <exclude-pattern>*\.test</exclude-pattern>
+  </rule>
+
+  <!--Allow long array syntax.-->
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+    <severity>0</severity>
   </rule>
 
   <!--Temporary disabled array indentation until
