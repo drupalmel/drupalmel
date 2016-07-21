@@ -16,4 +16,4 @@ themes/*
 # Vagrant
 .vagrant/
 docroot/
-Vagrantfile.bb
+.beetbox/Vagrantfile

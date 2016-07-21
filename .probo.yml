@@ -1,0 +1,22 @@
+steps:
+  - name: Drupalmel site install
+    plugin: Drupal
+    makeFile: stub.make
+    profileName: drupalmel
+    runInstall: true
+    clearCaches: true
+    drupalVersion: 7
+  - name: Install test dependencies
+    plugin: Script
+    script: |
+      composer --working-dir=$SRC_DIR install && vendor/bin/dcr install
+      composer --working-dir=$SRC_DIR/tests/behat install
+  - name: Run DCR tests
+    plugin: Shell
+    command: 'cd $SRC_DIR && . ~/.profile && dcr'
+  - name: Run behat tests
+    plugin: Shell
+    command: 'cd $SRC_DIR/tests/behat && vendor/bin/behat'
+  - name: Clear all the caches!
+    plugin: Shell
+    command: 'drush --root=/var/www/html cache-clear all'
